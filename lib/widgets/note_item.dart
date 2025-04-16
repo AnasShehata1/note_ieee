@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:note_ieee/models/note_model.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({
-    super.key,
-    required this.note
-  });
+  const NoteItem({super.key, required this.note, this.onPressed});
   final NoteModel note;
-
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +18,7 @@ class NoteItem extends StatelessWidget {
         title: Text(note.title),
         subtitle: Text(note.description),
         trailing: IconButton(
-          onPressed: () {},
+          onPressed: onPressed,
           icon: Icon(Icons.delete),
         ),
       ),
